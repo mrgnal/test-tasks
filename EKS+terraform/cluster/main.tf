@@ -11,12 +11,3 @@ terraform {
 provider "aws" {
   region = var.region
 }
-
-data "terraform_remote_state" "vpc" {
-  backend = "s3"
-  config = {
-    bucket = var.backend_bucket_name
-    key    = var.vpc_backend_bucket_key
-    region = var.region
-  }
-}

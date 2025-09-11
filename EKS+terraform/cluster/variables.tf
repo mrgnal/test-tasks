@@ -26,11 +26,21 @@ variable "instance_types" {
   type = list
 }
 
-#S3 remote
-variable "backend_bucket_name" {
+#VPC
+variable "vpc_cidr" {
   type = string
 }
 
-variable "vpc_backend_bucket_key" {
-  type = string
+variable "public_subnets" {
+    type = map(object({
+    cidr = string
+    az   = string
+    }))
+}
+
+variable "private_subnets" {
+    type = map(object({
+    cidr = string
+    az   = string
+    }))
 }

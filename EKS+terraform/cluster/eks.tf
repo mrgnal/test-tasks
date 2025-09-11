@@ -16,9 +16,9 @@ module "eks" {
   endpoint_public_access = var.eks_public_access
   enable_cluster_creator_admin_permissions = true
 
-  vpc_id                   = data.terraform_remote_state.vpc.outputs.vpc_id
-  subnet_ids               = data.terraform_remote_state.vpc.outputs.private_s_ids
-  control_plane_subnet_ids = data.terraform_remote_state.vpc.outputs.public_s_ids
+  vpc_id                   = aws_vpc.main.id
+  subnet_ids               = [for s in aws_subnet.private : s.id ]
+  control_plane_subnet_ids = [for s in aws_subnet.public: s.id ]
 
   eks_managed_node_groups = {
     example = {
