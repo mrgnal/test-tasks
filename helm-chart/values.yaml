@@ -1,0 +1,19 @@
+appName: myapp
+
+replicaCount: 2
+
+image:
+  repository: nginxdemos/hello
+  tag: latest
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 80
+
+labels:
+  app: hello-app
+
+resources:
+  memory: "128Mi"
+  cpu: "500m"
