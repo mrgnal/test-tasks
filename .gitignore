@@ -1,1 +1,3 @@
-test/
+*.tfvars
+backend-s3*
+*.terraform*
