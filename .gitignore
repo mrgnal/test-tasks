@@ -2,3 +2,4 @@
 backend-s3*
 *.terraform*
 *.tfstate
+/test
