@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: failure-demo
+spec:
+  restartPolicy: Never
+  containers:
+  - name: failure-demo-container
+    image: busybox
+    command: ["sh", "-c"]
+    args:
+      - exit 1 #Make exit with other code for error
